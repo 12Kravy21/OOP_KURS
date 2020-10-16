@@ -3,10 +3,10 @@ COMPILEFLAGS=-Wall -Werror
 all: bin/dictionary format
 
 bin/dictionary: build/main.o build/tree.o build/AVL.o
-			$(CXX) $(COMPILEFLAGS) build/main.o build/tree.o build/AVL.o -o $@ 
+			$(CXX) $(COMPILEFLAGS) build/main.o build/tree.o build/AVL.o -o $@ -std=c++11
 
 build/%.o: src/%.cpp include/tree.h include/AVL.h
-			$(CXX) $(COMPILEFLAGS) -I include -I src -c $< -o $@ 
+			$(CXX) $(COMPILEFLAGS) -I include -I src -c $< -o $@ -std=c++11
 
 format: src/main.cpp src/tree.cpp
 			clang-format -i src/main.cpp src/tree.cpp include/tree.h src/AVL.cpp include/AVL.h
