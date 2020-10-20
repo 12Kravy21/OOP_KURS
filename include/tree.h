@@ -24,17 +24,7 @@ public:
 class BinaryTree {
 protected:
     Node* root;
-    virtual void LeftLeftRotation(Node*& head) = 0;
-    virtual void LeftLeftRotationSpec(Node*& head) = 0;
-    virtual void LeftRightRotation(Node*& head) = 0;
-    virtual void RightRightRotation(Node*& head) = 0;
-    virtual void RightRightRotationSpec(Node*& head) = 0;
-    virtual void RightLeftRotation(Node*& head) = 0;
-    virtual void AddToAVL(std::string en, std::string ru) = 0;
     virtual void AVLTree(Node*& head, std::string en, std::string ru) = 0;
-    virtual void BalanceLeft(Node*& head) = 0;
-    virtual void BalanceRight(Node*& head) = 0;
-    virtual void DeleteTwoSubtrees(Node*& r, Node*& q) = 0;
     virtual void DeleteAVL(std::string x, Node*& p) = 0;
     int TreeSize(Node* head);
     void DestroyRecursive(Node*& leaf);

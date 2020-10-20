@@ -1,6 +1,7 @@
 #include "AVL.h"
 #include "tree.h"
 #include <iostream>
+#include <limits>
 #define ESC "\033"
 
 int main()
@@ -17,20 +18,21 @@ int main()
         std::cout << "For exit write \"-1\"\n";
         std::cout << "Choose: ";
         std::cin >> choose;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         switch (choose) {
         case 1: {
             printf(ESC "c");
             std::cout << "Add english word: ";
-            std::cin >> eng;
+            std::getline(std::cin, eng);
             std::cout << "Translation (russian word): ";
-            std::cin >> ru;
+            std::getline(std::cin, ru);
             wood.AddToAVL(eng, ru);
             break;
         }
         case 2: {
             printf(ESC "c");
             std::cout << "Find english word: ";
-            std::cin >> eng;
+            std::getline(std::cin, eng);
             if (wood.FindKey(wood.ReturnRoot(), eng)) {
                 std::cout << "This word been found\n";
             } else {
@@ -41,7 +43,7 @@ int main()
         case 3: {
             printf(ESC "c");
             std::cout << "Delete english word: ";
-            std::cin >> eng;
+            std::getline(std::cin, eng);
             wood.DeleteInAVL(eng);
             break;
         }
@@ -61,7 +63,6 @@ int main()
             break;
         }
         std::cout << "Press key to continue...\n";
-        getchar();
         getchar();
     }
 
